@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
+import ProfilePage from './components/ProfilePage'
 // import './App.css'
 
 function App() {
@@ -11,7 +12,9 @@ function App() {
   <div>
     
     <Navbar/>
-    <Home/>
+    {/* <Home/> */}
+    <ProfilePage/>
+
 
   </div>
   )
