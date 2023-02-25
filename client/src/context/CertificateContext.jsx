@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
+import { addUser } from "../utils/firebaseUtils";
 
 const CertificateContext=React.createContext();
 const {ethereum} =window;
@@ -32,6 +33,7 @@ const CertificateProvider=({children})=>{
                 });
                 if(accounts){
                     setCurrentAccount(accounts[0]);
+                    addUser(accounts[0]);
                 }else{
                     return alert("Please connect an Accounts")
                 }
