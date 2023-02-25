@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import Navbar from './assets/components/Navbar'
-import Home from './assets/components/Home'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
 // import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
   <div>
