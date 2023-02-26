@@ -127,13 +127,19 @@ Enter the details and issue a certificate
 - [x] Add sections to issue/view/request certificates
 - [x] Create contracts
 - [x] Mint NFTs
-- [ ] Convert certificates to NFTs
+- [x] Convert certificates to NFTs
+- [ ] Approval Request for certificates
 - [ ] Batch approval of certificates
 
 
 See the [open issues](https://github.com/Tanmai2002/Ureck-a-thon-2023/issues) for a full list of proposed features (and known issues).
+You can Refer to links inorder to check for videos:
+Add Certificate [IssueCerificate]
+View Certificates [ViewAllCertificates]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 <!-- REFERENCES -->
@@ -154,7 +160,8 @@ See the [open issues](https://github.com/Tanmai2002/Ureck-a-thon-2023/issues) fo
 [request_certi]: images/request_certi.png
 [view_certi]: images/certificates.png
 [product-flow-chart]: images/flowchart.jpeg
-
+[ViewAllCertificates]:https://drive.google.com/file/d/1Hd3pe8E1AGIITirSEsqSIdTrN79ZJdYc/view?usp=sharing
+[IssueCerificate]:https://drive.google.com/file/d/1-VgFSaXhj15IGPiz2PlWGwk3z0OE6EDL/view?usp=share_link
 [React.js]: https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=black&style=flat&logoWidth=20
 [React-url]: https://reactjs.org/
 [Firebase.com]: https://img.shields.io/badge/-Firebase-black?logo=firebase&logoColor=FFA611&style=flat&logoWidth=20
