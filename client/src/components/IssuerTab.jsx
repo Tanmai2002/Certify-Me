@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function IssuerTab() {
   return (
-    <div>IssuerTab</div>
+    <div className='flex w-full justify-center items-center'>IssuerTab</div>
   )
 }

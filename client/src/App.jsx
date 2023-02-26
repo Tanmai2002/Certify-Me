@@ -12,8 +12,8 @@ function App() {
   <div>
     
     <Navbar/>
-    {/* <Home/> */}
-    <ProfilePage/>
+    <Home/>
+    {/* <ProfilePage/> */}
 
 
   </div>
