@@ -105,7 +105,7 @@ _Follow the steps below to install and set up the app._
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-[![HomePage][home_page]]
+[![HomePage]home_page]
 [![MetaMask][metamask]]
 ### Request Certificate
 Enter the details and send a request for a certificate to be issued to you.
