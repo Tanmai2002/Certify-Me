@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom';
 import logo from "../assets/profileIcon.png"
 export default function Navbar() {
   const [navVisible, setNavVisible] = useState(true)
@@ -49,7 +50,7 @@ export default function Navbar() {
             xmlns="http://www.w3.org/2000/svg"
             id="menu-button"
             onClick={()=>setNavVisible(!navVisible)}
-            class="h-6 w-6 cursor-pointer md:hidden block"
+            className="h-6 w-6 cursor-pointer md:hidden block"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -75,13 +76,12 @@ export default function Navbar() {
               
           >
             <li>
-              <a className="md:p-4 py-2 block text-sm uppercase font-bold leading-snug text-black hover:opacity-75 hover:text-blue-600" href="#"
-                >Home</a
-              >
+              <NavLink to={"/"} className="md:p-4 py-2 block text-sm uppercase font-bold leading-snug text-black hover:opacity-75 hover:text-blue-600" href="#"
+                >Home</NavLink>
             </li>
             <li>
-              <a className="md:p-4 py-2 block text-sm uppercase font-bold leading-snug text-black hover:opacity-75 hover:text-blue-600" href="#"
-                >View Ceritfictes</a
+              <NavLink to={"/view-certificate"} className="md:p-4 py-2 block text-sm uppercase font-bold leading-snug text-black hover:opacity-75 hover:text-blue-600" href="#"
+                >View Ceritfictes</NavLink
               >
             </li>
             <li><a href=""><img src={logo} alt="" width="40px"/></a></li>

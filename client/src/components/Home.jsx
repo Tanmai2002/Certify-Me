@@ -1,27 +1,45 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import certificate_logo from "../assets/certificate.svg"
 
 import { CertificateContext } from '../context/CertificateContext'
 import IssuerTab from './IssuerTab';
 import Organisations from './Organisations';
 import RequestTab from './RequestTab';
+import VerifyCertificate from './VerifyCertificate';
 
 export default function Home() {
   const {CurrentAccount}=useContext(CertificateContext);
+  const [requestTab,setRequestTab]=useState(0);
+  const tabStyle='flex w-full items-center justify-center cursor-pointer p-3 '
+  const selectionStyle="bg-blue-300 text-black shadow-md z-10"
 
 
   const {connectWallet}=useContext(CertificateContext);
   return (
-    <div className='flex flex-col w-full justify-center'>
-      {CurrentAccount?<div className='flex flex-col-reverse sm:flex-row h-full justify-center items-center m-4 p-3 my-6 bg-blue-700 rounded-2xl'>
-        Hellow
+    <div className='flex flex-col items-center justify-center'>
+      {CurrentAccount?<div className='flex w-2/3 text-white flex-col h-full mx-10 md:mx-52 justify-center items-center m-4 my-6 bg-blue-700 rounded-2xl'>
+        <div className='flex w-full justify-center items-cent'>
+          <div className={`${tabStyle} rounded-tl-2xl ${requestTab==0?selectionStyle:""}`} onClick={()=>setRequestTab(0)}>
+            Issue a Certificate
+          </div>
+          <div  className={`${tabStyle}  ${requestTab==1?selectionStyle:''}`} onClick={()=>setRequestTab(1)}>
+            Request a Certificate
+            
+          </div>
+          <div  className={`${tabStyle} rounded-tr-2xl ${requestTab==2?selectionStyle:''}`} onClick={()=>setRequestTab(2)}>
+            Verify a Certificate
+            
+          </div>
 
-        <div className='flex flex-col-reverse sm:flex-row h-full justify-center items-center m-4 p-3 my-6 bg-blue-700 rounded-2xl'>
+        </div>
+
+       
+      <div className='bg-blue-300 p-2 flex w-full items-center justify-center  rounded-b-2xl'>
+      { requestTab==1?<RequestTab/>:requestTab==0?<IssuerTab/>:<VerifyCertificate/>
         
-        <IssuerTab/>
-        <RequestTab/>
-
+      }
       </div>
+    
       </div>: <div className='flex flex-col-reverse sm:flex-row w-full h-full justify-center items-center'>
         <div className= ' flex flex-col w-full m-5 md:mt-12 items-center'>
            <div className='flex text-blue text-4xl sm:text-5xl items-center justify-center h-36'>

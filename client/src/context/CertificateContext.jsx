@@ -74,11 +74,12 @@ const CertificateProvider=({children})=>{
                     address,
                     msg,
                     design,
-                    date,validtill
+                    new Date(date).getTime(),new Date(validtill).getTime()
 
                 )
                 // let id=await certificateContract.view_all_certificate(address);
                 console.log(id);
+                return id;
 
             }else{
                 alert("No account added.Please Connect First")
@@ -98,7 +99,10 @@ const CertificateProvider=({children})=>{
                
                 let id=await certificateContract.view_all_certificate(address);
                 console.log(id);
+                return(id);
 
+            }else{
+                alert("No Ethereum Account Connected. Please Connect")
             }
         } catch (error) {
             console.log(error)
@@ -123,7 +127,7 @@ const CertificateProvider=({children})=>{
       checkIfWalletConnected();
     }, [])
 
-    return <CertificateContext.Provider value={{connectWallet,getAllCertificate,CurrentAccount}}>
+    return <CertificateContext.Provider value={{connectWallet,getAllCertificate,CurrentAccount,addCertificate}}>
         {children}
     </CertificateContext.Provider>
 }
