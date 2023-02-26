@@ -1,11 +1,13 @@
 const ConvertLib = artifacts.require("ConvertLib");
 const MetaCoin = artifacts.require("MetaCoin");
 const Certificate= artifacts.require("Certificate");
+const VerificationIssuer=artifacts.require("VerifyIssuer");
 
 module.exports = function(deployer) {
   // deployer.deploy(ConvertLib);
   // deployer.link(ConvertLib, MetaCoin);
   // deployer.deploy(MetaCoin);
   deployer.deploy(Certificate);
+  deployer.deploy(VerificationIssuer);
 };
 
