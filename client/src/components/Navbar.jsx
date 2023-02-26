@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "../assets/profileIcon.png"
 export default function Navbar() {
+  const [navVisible, setNavVisible] = useState(true)
+  
   return (
     // <div class="container px-4 py-4 md:py-0 mx-auto flex flex-wrap items-center justify-between">
     //   <div>
@@ -46,6 +48,7 @@ export default function Navbar() {
          <svg
             xmlns="http://www.w3.org/2000/svg"
             id="menu-button"
+            onClick={()=>setNavVisible(!navVisible)}
             class="h-6 w-6 cursor-pointer md:hidden block"
             fill="none"
             viewBox="0 0 24 24"
@@ -87,13 +90,7 @@ export default function Navbar() {
         <div className='flex 
               md:hidden' id='menu2'>
         <ul
-            className="
-              pt-4
-              text-base text-gray-700
-              md:pt-0
-              visible
-              z-10
-              "
+            className={`${" pt-4 text-base text-gray-700 md:pt-0 visible z-10 "}${navVisible?"":"hidden"}`}
           >
             <li>
               <a className="md:p-4 py-2 block text-sm uppercase font-bold leading-snug text-black hover:opacity-75 hover:text-blue-600" href="#"
@@ -114,8 +111,3 @@ export default function Navbar() {
 }
 
 const button = document.querySelector('#menu-button');
-const menu2 = document.querySelector('#menu2');
-
-button.addEventListener('click', () => {
-  menu2.classList.toggle('hidden');
-});
