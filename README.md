@@ -12,7 +12,6 @@
     <a href="https://github.com/Tanmai2002/Ureck-a-thon-2023"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Tanmai2002/Ureck-a-thon-2023">View Demo</a>
     ·
     <a href="https://github.com/Tanmai2002/Ureck-a-thon-2023/issues">Report Bug</a>
     ·
@@ -134,8 +133,9 @@ Enter the details and issue a certificate
 
 See the [open issues](https://github.com/Tanmai2002/Ureck-a-thon-2023/issues) for a full list of proposed features (and known issues).
 You can Refer to links inorder to check for videos:
-Add Certificate [IssueCerificate]
-View Certificates [ViewAllCertificates]
+
+[IssueCerificate]
+[ViewAllCertificates]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
