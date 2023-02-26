@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import ProfilePage from './components/ProfilePage'
 import ViewCertificates from './components/ViewCertificates'
-// import './App.css'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -13,9 +13,11 @@ function App() {
   <div>
     
     <Navbar/>
-    {/* <Home/> */}
-    {/* <ProfilePage/> */}
-    <ViewCertificates/>
+    <Outlet/>
+   
+    {/* <Home/>
+    <ProfilePage/>
+    <ViewCertificates/> */}
 
 
   </div>

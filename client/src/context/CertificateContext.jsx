@@ -99,7 +99,10 @@ const CertificateProvider=({children})=>{
                
                 let id=await certificateContract.view_all_certificate(address);
                 console.log(id);
+                return(id);
 
+            }else{
+                alert("No Ethereum Account Connected. Please Connect")
             }
         } catch (error) {
             console.log(error)
