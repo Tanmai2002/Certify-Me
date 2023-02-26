@@ -41,9 +41,9 @@ export default function Navbar() {
         "
       >
        <div>
-          <a href="#">
+          <NavLink to={"/"}>
 
-          </a>
+          </NavLink>
         </div>
        
          <svg
@@ -81,10 +81,10 @@ export default function Navbar() {
             </li>
             <li>
               <NavLink to={"/view-certificate"} className="md:p-4 py-2 block text-sm uppercase font-bold leading-snug text-black hover:opacity-75 hover:text-blue-600" href="#"
-                >View Ceritfictes</NavLink
+                >View Certificates</NavLink
               >
             </li>
-            <li><a href=""><img src={logo} alt="" width="40px"/></a></li>
+            <li><NavLink to={"/profile"}><img src={logo} alt="" width="40px"/></NavLink></li>
           </ul>
         </div>
         <div className='flex 

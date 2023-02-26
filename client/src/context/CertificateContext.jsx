@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import {  getUser, syncUserProfile } from "../utils/firebaseUtils";
+import {  getUser, syncUserProfile, writeTransaction } from "../utils/firebaseUtils";
 import { contractAddress,contractABI } from "../utils/constants";
+import storeAsset from "../utils/NFTutils.js";
 
 const CertificateContext=React.createContext();
 const {ethereum} =window;
@@ -17,6 +18,7 @@ const getEthereumContract=()=>{
 }
 const CertificateProvider=({children})=>{
     const [CurrentAccount, setCurrentAccount] = useState("");
+
     const checkIfWalletConnected=async()=>{
         try {
             if(!ethereum) return alert("Please Install Metamask");
@@ -60,7 +62,7 @@ const CertificateProvider=({children})=>{
     }
 
 
-    async function addCertificate(address="0x1288331A47E02fb7F7bDAE736205a606c550DcF8",msg="First Contract",design="This is temp design",date=15,validtill=18){
+    async function addCertificate(address="0x1288331A47E02fb7F7bDAE736205a606c550DcF8",msg="First Contract",design="This is temp design",date=15,validtill=18,name=""){
         try {
             
             if(ethereum){
@@ -69,16 +71,33 @@ const CertificateProvider=({children})=>{
                 const certificateContract=new ethers.Contract(contractAddress,contractABI,signer)
                 // const certificateContract=getEthereumContract();
                 console.log(signer);
+                let res=await storeAsset(CurrentAccount,address,msg,design)
+                let designVal=res.url;
+                
                
                 let id=await certificateContract.create_certificate(
                     address,
                     msg,
-                    design,
+                    designVal,
                     new Date(date).getTime(),new Date(validtill).getTime()
 
                 )
                 // let id=await certificateContract.view_all_certificate(address);
-                console.log(id);
+                console.log(id,id.hash);
+                // alert(id)
+                
+                const txReceipt = await provider.getTransaction(id.hash)
+                console.log(id.logs);
+                // console.log(txReceipt.data,);
+                let data=txReceipt.toJSON();
+                data['signature']="";
+                data['provider']="";
+                data['certification']=msg;
+                data['design']=designVal;
+                data['name']=name;
+
+                await writeTransaction(id.hash,data)
+               
                 return id;
 
             }else{
@@ -86,8 +105,10 @@ const CertificateProvider=({children})=>{
             }
         } catch (error) {
             console.log(error)
+            throw error
         }
     }
+
 
     let getAllCertificate=async (address="0x1288331A47E02fb7F7bDAE736205a606c550DcF8")=>{
         try {

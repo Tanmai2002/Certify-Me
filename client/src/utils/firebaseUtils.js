@@ -1,8 +1,8 @@
-import { getFirestore } from "firebase/firestore";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { doc, setDoc ,getDoc} from "firebase/firestore"; 
+import { doc, setDoc ,getDoc,updateDoc} from "firebase/firestore"; 
 
 // process
 // let env=process.env
@@ -47,6 +47,16 @@ const getUser=async(address)=>{
     }
 }
 
+const updateUser=async(map,id)=>{
+    try {
+         let docRef = await updateDoc(doc(_db, "users",id), map);
+          console.log("Document updated with ID: ", docRef);
+        
+    } catch (error) {
+        console.error("Error adding document: ", error);
+    }
+}
+
 const syncUserProfile=async(address)=>{
     try {
         let docRef=await getDoc(doc(_db,"users",address));
@@ -66,12 +76,38 @@ const syncUserProfile=async(address)=>{
 }
 
 
+const writeTransaction=async(hash,receipt)=>{
+    try {
+        
+         let docRef = await setDoc(doc(_db, "transactions",hash), 
+         JSON.parse(JSON.stringify(receipt))
+          );
+          console.log("Document written with ID: ", docRef);
+        
+    } catch (error) {
+        console.error("Error adding document: ", error);
+    }
+
+}
+
+const writeRequest=async(requestTo,map)=>{
+    try {
+        
+         let docRef = await addDoc(collection(_db, `users/${requestTo}/request`), 
+         JSON.parse(JSON.stringify(map))
+          );
+          console.log("Document written with ID: ", docRef);
+        
+    } catch (error) {
+        console.error("Error adding document: ", error);
+    }
+
+}
 
 
 
 
 
 
-
-export {syncUserProfile,getUser}
+export {syncUserProfile,getUser,writeTransaction,updateUser,writeRequest}
 

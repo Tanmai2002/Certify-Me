@@ -19,7 +19,7 @@ export default function IssuerTab() {
 
     }
     
-    window.reload()
+    // window.reload()
     setIssuing(false);
   }
   
@@ -33,10 +33,13 @@ export default function IssuerTab() {
 return <div className={`${'flex  flex-col items-center justify-center w-full px-4 p-3'} ${item=="content_of_certificate"?"col-span-2":""}`}>
 <p className='text-start text-sm text-blue-700 items-start justify-start w-full'>{item.split("_").join(" ")}</p>
 <input
-type={(item=="valid_till" || item=="date_of_issue")?"date":"text"}
-placeholder={item.split("_").join(" ")} className=' text-black w-full  bg-transparent border-black border rounded-lg p-2 place-content-center' value={formData[item]} onChange={(e)=>{
+type={(item=="valid_till" || item=="date_of_issue")?"date":item=="design_certificate"?"file":"text"}
+placeholder={item.split("_").join(" ")} className=' text-black w-full  bg-transparent border-black border rounded-lg p-2 place-content-center' value={item=="design_certificate"?"":formData[item]} onChange={(e)=>{
     let data=formData;
     data[item]=e.target.value;
+    if(item=="design_certificate"){
+      data[item]=e.target.files[0]
+    }
     
     setFormData(data)
     console.log(formData,data)
