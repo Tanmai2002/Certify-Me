@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import ProfilePage from './components/ProfilePage'
+import ViewCertificates from './components/ViewCertificates'
 // import './App.css'
 
 function App() {
@@ -12,8 +13,9 @@ function App() {
   <div>
     
     <Navbar/>
-    <Home/>
+    {/* <Home/> */}
     {/* <ProfilePage/> */}
+    <ViewCertificates/>
 
 
   </div>
