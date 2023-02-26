@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function RequestTab() {
   return (
-    <div>RequestTab</div>
+    <div className='flex w-full justify-center items-center'>RequestTab</div>
   )
 }
