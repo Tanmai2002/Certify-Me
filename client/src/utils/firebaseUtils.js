@@ -2,7 +2,7 @@ import { getFirestore } from "firebase/firestore";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc ,getDoc} from "firebase/firestore"; 
 
 // process
 // let env=process.env
@@ -32,19 +32,42 @@ const _app = initializeApp(firebaseConfig);
 const _analytics = getAnalytics(_app);
 const _db = getFirestore(_app);
 
-const getUser=(address)=>{
-    _db.c
-}
-const addUser=async (address)=>{
-try {
-  const docRef = await setDoc(doc(_db, "users",address), {
-    walletAddress:address
-  });
-  console.log("Document written with ID: ", docRef);
-} catch (e) {
-  console.error("Error adding document: ", e);
-}
+const getUser=async(address)=>{
+    try {
+        let docRef=await getDoc(doc(_db,"users",address));
+        console.log(docRef);
+        if(docRef.data()){
+            return docRef.data();
+        }
+        return {};
+        
+    } catch (error) {
+        console.error(error)
+        
+    }
 }
 
-export {addUser}
+const syncUserProfile=async(address)=>{
+    try {
+        let docRef=await getDoc(doc(_db,"users",address));
+        console.log(docRef);
+        if(docRef.data()){
+            return docRef.data();
+        }
+         docRef = await setDoc(doc(_db, "users",address), {
+            walletAddress:address
+          });
+          console.log("Document written with ID: ", docRef);
+        
+    } catch (error) {
+        console.error("Error adding document: ", error);
+    }
+
+}
+
+
+
+
+
+export {syncUserProfile,getUser}
 

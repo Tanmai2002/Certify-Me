@@ -6,11 +6,11 @@ import { UserProvider } from './context/UserContext'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  
   <UserProvider>
     <CertificateProvider>
   <App />
   </CertificateProvider>
   </UserProvider>
-  </React.StrictMode>,
+
 )
