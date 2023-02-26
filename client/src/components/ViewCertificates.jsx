@@ -7,7 +7,7 @@ export default function ViewCertificates() {
     return(
       <div>
         <img src={cert} width="200px" alt="" />
-        <div>{id}</div>
+        {/* <div>{id}</div> */}
       </div>
     )
   }
