@@ -105,13 +105,19 @@ _Follow the steps below to install and set up the app._
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
+[![HomePage][home_page]]
+[![MetaMask][metamask]]
 ### Request Certificate
 Enter the details and send a request for a certificate to be issued to you.
+[![RequestCerti][request_certi]]
 ### View Certificates
 Displays all the certificates that have been issued to you.
+[![ViewCerti][view_certi]]
 ### Verify Certificate
 Send a request for the authenticity of a certificate to be validated.
+### Issue Certificate
+Enter the details and issue a certificate
+[![IssueCerti][issue_certificate]]
 
 
 
@@ -142,6 +148,12 @@ See the [open issues](https://github.com/Tanmai2002/Ureck-a-thon-2023/issues) fo
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
+[home_page]: images/home_page.png
+[metamask]: images/metamask.png
+[issue_certificate]: images/issue_certificates.png
+[request_certi]: images/request_certi.png
+[view_certi]: images/certificates.png
+
 [product-flow-chart]: client/src/assets/flowchart.jpeg
 [React.js]: https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=black&style=flat&logoWidth=20
 [React-url]: https://reactjs.org/
