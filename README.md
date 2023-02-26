@@ -133,8 +133,11 @@ Enter the details and issue a certificate
 
 See the [open issues](https://github.com/Tanmai2002/Ureck-a-thon-2023/issues) for a full list of proposed features (and known issues).
 You can Refer to links inorder to check for videos:
-
+<br/>
 [IssueCerificate]
+<br/>
+Here we see meta mask asked 2 times for approval first for minting nft and second to write the certificate with all details and parameters 
+
 [ViewAllCertificates]
 
 
