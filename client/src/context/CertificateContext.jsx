@@ -6,16 +6,16 @@ import storeAsset from "../utils/NFTutils.js";
 
 const CertificateContext=React.createContext();
 const {ethereum} =window;
-const getEthereumContract=()=>{
-    console.log(ethers);
-    const provider=new ethers.BrowserProvider(ethereum);
-    const signer=provider.getSigner();
-    const certificateContract=new ethers.Contract(contractAddress,contractABI,signer)
-    console.log({
-        provider,signer,certificateContract
-    })
-    return certificateContract;
-}
+// const getEthereumContract=()=>{
+//     console.log(ethers);
+//     const provider=new ethers.BrowserProvider(ethereum);
+//     const signer=provider.getSigner();
+//     const certificateContract=new ethers.Contract(contractAddress,contractABI,signer)
+//     console.log({
+//         provider,signer,certificateContract
+//     })
+//     return certificateContract;
+// }
 const CertificateProvider=({children})=>{
     const [CurrentAccount, setCurrentAccount] = useState("");
 
@@ -28,7 +28,8 @@ const CertificateProvider=({children})=>{
                 //getAllTransaction();
             }else{
                 // console.error(error);
-                throw new Error("No Ethereum account found")
+                // throw new Error("No Ethereum account found")
+                return alert("Please Connect Mumbai Matic")
             }
             console.log(accounts);
         } catch (er) {
